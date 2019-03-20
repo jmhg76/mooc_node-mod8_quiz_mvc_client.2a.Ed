@@ -84,12 +84,15 @@ const updateController = (id) => {
 };
 
 const newController = () => {
-    // ..... introducir código
-
+    let quizzes = JSON.parse(localStorage.quizzes);
+    $('#main').html(quizForm('New Quiz', 'create', null, "", ""));
 };
 
 const createController = () => {
-    // ..... introducir código
+  let quizzes = JSON.parse(localStorage.quizzes);
+  quizzes.push({ question: $('#question').val() , answer : $('#answer').val() });
+  localStorage.quizzes = JSON.stringify(quizzes);
+  indexController();
 };
 
 const deleteController = (id) => {
@@ -115,6 +118,8 @@ const eventsController = ()=> {
   $(document).on('click','.update', (e)=> updateController(Number($(e.target).attr("quizid"))));
 
   // ..... añadir manejadores de eventos new, create, delete y reset
+  $(document).on('click','.new',  () => newController());
+  $(document).on('click','.create',  () => createController());
   $(document).on('click','.delete', (e)=> deleteController(Number($(e.target).attr("quizid"))));
   $(document).on('click','.reset',  () => resetController());
 }
