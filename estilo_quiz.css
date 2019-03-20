@@ -80,8 +80,8 @@ footer {
 	}
 }
 @media (orientation: portrait) {
-section {
-	grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-}
+	section {
+		grid-template-columns: 1fr;
+	    grid-template-rows: auto auto;
+	}
 }
