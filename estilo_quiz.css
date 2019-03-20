@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+body, html {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+	margin: 0;
+	margin-bottom: 0.5em;
+	text-transform: uppercase;
+	padding-left:0.5em;
+}
+
+#main {
+	border-top:solid 1px #01579b;
+	border-bottom:solid 1px #01579b;
+}
+
+#main div {
+	padding-right: 1em;
+}
+
+#main div span {
+	display: inline-block;
+	width: 15rem;
+	padding-left: 0.5em;
+	font-weight: bold;
+	box-sizing:border-box;
+}
+
+#main div .play:hover {
+	cursor: pointer;
+}
+
+button {
+	background-color:#81d4fa;
+	padding:0.3rem;
+	border-radius:5px;
+	border:solid 1px #0288d1;
+	margin-top:0.3em;
+	margin-bottom:0.3em;
+	width:8em;
+	cursor:pointer;
+}
+
+button:hover {
+	background-color:#0277bd;
+	color:white;
+}
+
+#main .new {
+	margin-left: 15.2rem;
+}
+
+header {
+	font-family: 'Lato', sans-serif;
+	font-size: 2em;
+	color: #FFFFFF;
+	background-color: #666;
+	padding: 0.3rem;
+	padding-left: 2.2em;
+}
+
+footer {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.8em;
+	color: #FFFFFF;
+	background-color: #666;
+	padding: 0.3rem;
+	padding-left: 2.2em;
+}
+
+@media (orientation: landscape) {
+	section {
+		grid-template-columns: 1fr 1fr;
+	    grid-template-rows: auto;
+	}
+}
+@media (orientation: portrait) {
+section {
+	grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+}
