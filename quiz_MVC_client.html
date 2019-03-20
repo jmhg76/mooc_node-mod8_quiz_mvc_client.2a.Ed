@@ -100,7 +100,8 @@ const deleteController = (id) => {
 };
 
 const resetController = () => {
-  // ..... introducir código
+  localStorage.quizzes = initial_quizzes; // Inicializamos quizzes
+  indexController();
 };
 
 
@@ -115,6 +116,7 @@ const eventsController = ()=> {
 
   // ..... añadir manejadores de eventos new, create, delete y reset
   $(document).on('click','.delete', (e)=> deleteController(Number($(e.target).attr("quizid"))));
+  $(document).on('click','.reset',  () => resetController());
 }
 
 
