@@ -6,7 +6,7 @@
 
     // MODEL
 
-const initial_quizzes = JSON.stringify([ 
+const initial_quizzes = JSON.stringify([
         { question: "Capital of Italy",    answer: "Rome" },
         { question: "Capital of France",   answer: "Paris" },
         { question: "Capital of Spain",    answer: "Madrid" },
@@ -17,14 +17,14 @@ localStorage.quizzes = localStorage.quizzes || initial_quizzes;
 
     // VIEWs
 
-const index = (quizzes) => quizzes.reduce((ac, quiz, id) => 
+const index = (quizzes) => quizzes.reduce((ac, quiz, id) =>
     ac +=`<div><span class="play"   quizid="${id}">${quiz.question}</span>
              <button class="edit"   quizid="${id}">Edit</button>
              <button class="delete" quizid="${id}">Delete</button>
         </div>\n`,
         ""
     )
-  + `<button class="new">  New Quiz</button>
+  + `<button class="new">New Quiz</button>
      <button class="reset">Reset Quizzes</button>`;
 
 const play = (id, question) =>
@@ -85,6 +85,7 @@ const updateController = (id) => {
 
 const newController = () => {
     // ..... introducir código
+
 };
 
 const createController = () => {
@@ -92,11 +93,14 @@ const createController = () => {
 };
 
 const deleteController = (id) => {
-    // ..... introducir código
+    let quizzes = JSON.parse(localStorage.quizzes);
+    quizzes.splice(id, 1); // Eliminamos elemento seleccionado
+    localStorage.quizzes = JSON.stringify(quizzes);
+    indexController();
 };
 
-const resetController = (id) => {
-    // ..... introducir código
+const resetController = () => {
+  // ..... introducir código
 };
 
 
@@ -109,7 +113,8 @@ const eventsController = ()=> {
   $(document).on('click','.edit',   (e)=> editController(Number($(e.target).attr("quizid"))));
   $(document).on('click','.update', (e)=> updateController(Number($(e.target).attr("quizid"))));
 
-    // ..... añadir manejadores de eventos new, create, delete y reset
+  // ..... añadir manejadores de eventos new, create, delete y reset
+  $(document).on('click','.delete', (e)=> deleteController(Number($(e.target).attr("quizid"))));
 }
 
 
